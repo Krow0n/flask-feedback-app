@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Feedback</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Submit Your Feedback</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" class="card p-4 shadow-sm">
+        <div class="mb-3">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="feedback" class="form-label">Your Feedback</label>
+            <textarea name="feedback" id="feedback" rows="4" class="form-control" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{{ url_for('view_feedback') }}" class="btn btn-secondary">View All Feedback</a>
+    </form>
+</div>
+</body>
+</html>

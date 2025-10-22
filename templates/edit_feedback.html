@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Feedback</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Edit Feedback</h1>
+
+    <form method="POST" class="card p-4 shadow-sm">
+        <div class="mb-3">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" name="name" id="name" class="form-control" value="{{ feedback.name }}" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="feedback" class="form-label">Your Feedback</label>
+            <textarea name="feedback" id="feedback" rows="4" class="form-control" required>{{ feedback.feedback }}</textarea>
+        </div>
+
+        <button type="submit" class="btn btn-success">Update</button>
+        <a href="{{ url_for('view_feedback') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+</body>
+</html>
