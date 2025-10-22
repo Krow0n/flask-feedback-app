@@ -89,5 +89,4 @@ def delete_feedback(id):
 
 
 if __name__ == "__main__":
-    init_db()
-    app.run(debug=True)
+    app.run()
